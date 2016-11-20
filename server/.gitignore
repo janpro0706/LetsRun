@@ -1,0 +1,10 @@
+# npm dependencies
+node_modules
+
+# build out files (production)
+build
+
+# misc
+.DS_Store
+.env
+npm-debug.log
