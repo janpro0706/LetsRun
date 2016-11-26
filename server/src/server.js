@@ -5,6 +5,11 @@ var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 
+
+import mongoose from 'mongoose';
+mongoose.connect('mongodb://localhost/letsrun');
+mongoose.Promise = Promise;
+
 var app = express();
 
 // view engine setup
@@ -19,7 +24,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
-app.use('/api', require('./api'));
+app.use('/api', require('./routes'));
 
 
 // // catch 404 and forward to error handler

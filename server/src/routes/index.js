@@ -3,11 +3,10 @@
  */
 
 import { Router } from 'express';
+import users from './users';
 
 let router = Router();
 
-router.get('/', (req, res) => {
-    res.send('hello world');
-});
+router.use('/users', users);
 
 module.exports = router;
