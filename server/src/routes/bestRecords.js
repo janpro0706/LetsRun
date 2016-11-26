@@ -1,10 +1,10 @@
 /**
- * Created by janpr on 2016-11-20.
+ * Created by janpr on 2016-11-27.
  */
 
 import pollyfill from 'babel-polyfill';
 import { Router } from 'express';
-import { Track } from '../model';
+import { BestRecord } from '../model';
 
 const router = Router();
 

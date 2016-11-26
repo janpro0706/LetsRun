@@ -6,7 +6,7 @@ import pollyfill from 'babel-polyfill';
 import { Router } from 'express';
 import { User } from '../model';
 
-let router = Router();
+const router = Router();
 
 router.post('/', (req, res) => {
     var data = req.body;
@@ -45,6 +45,6 @@ const checkDuplicate = async function checkDuplicate(id) {
     });
 
     return dup;
-}
+};
 
 module.exports = router;

@@ -46,4 +46,16 @@ const tracks = new Schema({
     distance: { type: Number, required: true }
 });
 
-module.exports = { users, records, bestRecords, tracks };
+const races = new Schema({
+    trackId: { type: ObjectId, required: true },
+    userId: { type: ObjectId, required: true },
+    isMulti: { type: Boolean, default: false },
+    racers: [ { ObjectId } ],
+    status: { type: Number, default: 0 }
+});
+
+const tokens = new Schema({
+    token: { type: String, required: true, unique: true }
+});
+
+module.exports = { users, records, bestRecords, tracks, races, tokens };
