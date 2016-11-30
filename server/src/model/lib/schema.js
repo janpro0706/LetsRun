@@ -47,7 +47,7 @@ const tracks = new Schema({
 });
 
 const races = new Schema({
-    trackId: { type: ObjectId, required: true },
+    trackId: { type: ObjectId },
     userId: { type: ObjectId, required: true },
     isMulti: { type: Boolean, default: false },
     racers: [ { ObjectId } ],
