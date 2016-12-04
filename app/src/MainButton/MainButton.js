@@ -20,7 +20,7 @@ class MainButton extends Component {
 
     render() {
         return (
-            <li><a href={this.props.url} onClick={this.onClick}>{this.props.children}</a></li>
+            <li><a href={this.props.url} onClick={this.onClick} style={{ textAlign: 'center' }}>{this.props.children}</a></li>
         );
     }
 }
