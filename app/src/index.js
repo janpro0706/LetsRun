@@ -9,6 +9,7 @@ import { browserHistory, Router, Route, IndexRoute } from 'react-router';
 
 import App from './App';
 import MainPage from './MainPage';
+import LoginPage from './LoginPage';
 import RouteTest from './RouteTest';
 
 
@@ -19,7 +20,7 @@ ReactDOM.render(
             <Route path="/setting/race" component={RouteTest} />
             <Route path="/record" component={RouteTest} />
             <Route path="/rank" component={RouteTest} />
-            <Route path="/login" component={RouteTest} />
+            <Route path="/login" component={LoginPage} />
         </Route>
     </Router>,
     document.getElementById('root')
