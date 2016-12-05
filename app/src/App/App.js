@@ -3,25 +3,20 @@ import logo from '../logo.svg';
 import './App.css';
 
 class App extends Component {
-    globalContext = {
-        token: ''
-    };
-
     constructor(props) {
         super(props);
         this.login = this.login.bind(this);
         this.logout = this.logout.bind(this);
         this.signup = this.signup.bind(this);
-    }
 
-    getChildContext() {
-        console.log('get child context');
-        return this.globalContext;
+        this.state = {
+            token: ''
+        };
     }
 
     login(form) {
         if (form.id === 'janpro' && form.password === '1234') {
-            this.globalContext.token = 'K23gf8e';
+            this.state.token = 'K23gf8e';
 
             return true;
         }
@@ -29,11 +24,13 @@ class App extends Component {
     }
 
     logout() {
-        if (this.globalContext.token !== '') {
-            console.log(this.globalContext.token);
-            this.globalContext.token = '';
-            console.log(this.globalContext.token);
+        if (this.state.token !== '') {
+            this.setState({
+                token: ''
+            });
+            return true;
         }
+        return false;
     }
 
     signup(form) {
@@ -45,6 +42,7 @@ class App extends Component {
         // console.dir(this.props.children);
 
         const childrenWithService = React.Children.map(this.props.children, child => React.cloneElement(child, {
+            token: this.state.token,
             login: this.login,
             logout: this.logout,
             signup: this.signup

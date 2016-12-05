@@ -8,7 +8,7 @@ import { browserHistory } from 'react-router';
 
 class MainUserIcon extends Component {
     render() {
-        return <p style={{ textAlign: 'center' }}>{this.context.token !== '' ? `hello ${this.context.token}` : 'not loginned'}</p>;
+        return <p style={{ textAlign: 'center' }}>{this.props.token !== '' ? `hello ${this.props.token}` : 'not loginned'}</p>;
     }
 }
 

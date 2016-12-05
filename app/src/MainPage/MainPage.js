@@ -26,12 +26,13 @@ class MainPage extends Component {
         this.props.logout();
 
         // login token is managed by App's context, so explicitly call update
-        this.forceUpdate();
+        // this.forceUpdate();
     }
 
     render() {
-        console.log(this.context.token);
-        const logInOut = this.context.token === '' ? <MainButton url="/login"><p>LOGIN</p></MainButton> : <Button onClick={this.logout} raised colored ripple primary>LOGOUT</Button>;
+        // console.log(this.props.token);
+        const logInOut = this.props.token === '' ? <MainButton url="/login"><p>LOGIN</p></MainButton> : <li style={{ textAlign: 'center' }}><Button onClick={this.logout} raised colored ripple primary style={{  }}>LOGOUT</Button></li>;
+        const isLoginned = this.props.token !== '';
 
         return (
             <div>
@@ -40,15 +41,15 @@ class MainPage extends Component {
                         <MainTitle title="LET'S RUN" />
                     </div>
 
-                    <ul style={{ height: '30%', listStyleType: 'none', margin: '0 auto', padding: '0' }}>
-                        <MainButton url="/setting/race"><p>START</p></MainButton>
-                        <MainButton url="/record"><p>RECORD</p></MainButton>
-                        <MainButton url="/rank"><p>RANK</p></MainButton>
+                    <ul style={{ width: '100%', height: '30%', listStyleType: 'none', margin: '0 auto', padding: '0' }}>
+                        <MainButton url={isLoginned ? "/setting/race" : "/login"}><p>START</p></MainButton>
+                        <MainButton url={isLoginned ? "/record" : "/login"}><p>RECORD</p></MainButton>
+                        <MainButton url={isLoginned ? "/rank" : "/login"}><p>RANK</p></MainButton>
                         { logInOut }
                     </ul>
 
                     <div style={{ height: '30%' }}>
-                        <MainUserIcon />
+                        <MainUserIcon token={this.props.token} />
                     </div>
                 </Layout>
             </div>
