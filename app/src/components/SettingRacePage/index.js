@@ -10,7 +10,7 @@ import './SettingRacePage.css';
 import { Switch, List, ListItem, ListItemContent, ListItemAction, Icon, Button } from 'react-mdl';
 
 // temp track img
-import trackImg from '../img/google_map.png';
+import trackImg from '../../img/google_map.png';
 
 const tempTrack = {
     trackId: '1234',

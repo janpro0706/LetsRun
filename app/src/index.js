@@ -7,11 +7,7 @@ import './index.css';
 
 import { browserHistory, Router, Route, IndexRoute } from 'react-router';
 
-import App from './App';
-import MainPage from './MainPage';
-import LoginPage from './LoginPage';
-import SignupPage from './SignupPage';
-import SettingRacePage from './SettingRacePage';
+import { App, MainPage, LoginPage, SignupPage, SettingRacePage } from './components';
 import RouteTest from './RouteTest';
 
 

@@ -62,4 +62,4 @@ App.childContextTypes = {
     token: React.PropTypes.string
 };
 
-export default App;
+module.exports = App;
