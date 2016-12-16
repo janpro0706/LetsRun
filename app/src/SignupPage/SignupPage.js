@@ -3,21 +3,14 @@
  */
 
 import React, { Component } from 'react';
-import { browserHistory } from 'react-router';
 
-import MainTitle from '../MainTitle';
-import MainButton from '../MainButton';
 import SignupForm from '../SignupForm';
 import './SignupPage.css';
 
-import { Button, Layout, Content, Grid, Cell } from 'react-mdl';
+import { Layout } from 'react-mdl';
 
 
 class SignupPage extends Component {
-    constructor(props) {
-        super(props);
-    }
-
     render() {
         return (
             <div>

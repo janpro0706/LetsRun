@@ -24,6 +24,7 @@ ReactDOM.render(
             <Route path="/setting/race" component={SettingRacePage} />
             <Route path="/record" component={RouteTest} />
             <Route path="/rank" component={RouteTest} />
+
         </Route>
     </Router>,
     document.getElementById('root')

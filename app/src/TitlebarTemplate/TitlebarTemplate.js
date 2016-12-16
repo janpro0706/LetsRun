@@ -4,14 +4,11 @@
 
 import React, { Component } from 'react';
 
-import MainTitle from '../MainTitle';
-import MainButton from '../MainButton';
-import MainUserIcon from '../MainUserIcon';
 import './TitlebarTemplate.css';
 
 import { browserHistory } from 'react-router';
 
-import { Layout, Header, HeaderRow, Button, Content, Grid, Cell } from 'react-mdl';
+import { Layout, Header, HeaderRow, Content } from 'react-mdl';
 
 
 class TitlebarTemplate extends Component {

@@ -3,12 +3,8 @@
  */
 
 import React, { Component } from 'react';
-import { browserHistory } from 'react-router';
 
 import TitlebarTemplate from '../TitlebarTemplate';
-import MainTitle from '../MainTitle';
-import MainButton from '../MainButton';
-import LoginForm from '../LoginForm';
 import './SettingRacePage.css';
 
 import { Switch, List, ListItem, ListItemContent, ListItemAction, Icon, Button } from 'react-mdl';
@@ -66,7 +62,7 @@ class SettingRacePage extends Component {
     render() {
         const trackComponent = (
             <SettingComponent title={tempTrack.name}>
-                <img src={trackImg} />
+                <img src={trackImg} alt="track img" />
                 <p>Distrance: {tempTrack.distance}</p>
             </SettingComponent>
         );

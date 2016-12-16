@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import logo from '../logo.svg';
+// import logo from '../logo.svg';
 import './App.css';
 
 class App extends Component {
@@ -16,7 +16,9 @@ class App extends Component {
 
     login(form) {
         if (form.id === 'janpro' && form.password === '1234') {
-            this.state.token = 'K23gf8e';
+            this.setState({
+                token: 'K23gf8e'
+            });
 
             return true;
         }

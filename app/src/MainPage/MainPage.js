@@ -9,9 +9,7 @@ import MainButton from '../MainButton';
 import MainUserIcon from '../MainUserIcon';
 import './MainPage.css';
 
-import { browserHistory } from 'react-router';
-
-import { Layout, Button, Content, Grid, Cell } from 'react-mdl';
+import { Layout, Button } from 'react-mdl';
 
 
 class MainPage extends Component {

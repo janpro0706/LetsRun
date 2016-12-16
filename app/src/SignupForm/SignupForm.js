@@ -5,8 +5,6 @@
 import React, { Component } from 'react';
 import { browserHistory } from 'react-router';
 
-import MainTitle from '../MainTitle';
-import MainButton from '../MainButton';
 import './SignupForm.css';
 
 import { Button, Textfield } from 'react-mdl';
