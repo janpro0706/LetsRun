@@ -3,6 +3,7 @@
  */
 
 import React, { Component } from 'react';
+import { browserHistory } from 'react-router';
 
 import TitlebarTemplate from '../TitlebarTemplate';
 import './SettingRacePage.css';
@@ -82,7 +83,7 @@ class SettingRacePage extends Component {
                     {singleMultiSwitch}
                     {this.state.isMulti ? playerList : null}
                 </div>
-                <Button primary style={{ position: 'absolute', bottom: '0' }}>START</Button>
+                <Button onClick={e => browserHistory.push('/race') }primary style={{ position: 'absolute', bottom: '0' }}>START</Button>
             </TitlebarTemplate>
         );
     }

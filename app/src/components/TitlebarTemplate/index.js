@@ -2,9 +2,7 @@
  * Created by janpr on 2016-12-04.
  */
 
-import React, { Component } from 'react';
-
-import './TitlebarTemplate.css';
+import React, { Component } from 'react';import './TitlebarTemplate.css';
 
 import { browserHistory } from 'react-router';
 
@@ -21,7 +19,7 @@ class TitlebarTemplate extends Component {
                         </HeaderRow>
                         <button className="goBack mdl-layout-icon mdl-button mdl-js-button mdl-button--icon" onClick={() => browserHistory.go(-1)}><i className="material-icons">＜</i></button>
                     </Header>
-                    <Content style={{ height: '90%' }}>
+                    <Content style={{ height: '88%', left: '0', top: '0' }}>
                         {this.props.children}
                     </Content>
                 </Layout>

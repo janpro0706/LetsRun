@@ -7,7 +7,7 @@ import './index.css';
 
 import { browserHistory, Router, Route, IndexRoute } from 'react-router';
 
-import { App, MainPage, LoginPage, SignupPage, SettingRacePage } from './components';
+import { App, MainPage, LoginPage, SignupPage, SettingRacePage, RacePage } from './components';
 import RouteTest from './RouteTest';
 
 
@@ -18,6 +18,7 @@ ReactDOM.render(
             <Route path="/login" component={LoginPage} />
             <Route path="/signup" component={SignupPage} />
             <Route path="/setting/race" component={SettingRacePage} />
+            <Route path="/race" component={RacePage} />
             <Route path="/record" component={RouteTest} />
             <Route path="/rank" component={RouteTest} />
 

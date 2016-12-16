@@ -10,6 +10,7 @@ module.exports = {
     MainPage: require('./MainPage'),
     MainTitle: require('./MainTitle'),
     MainUserIcon: require('./MainUserIcon'),
+    RacePage: require('./RacePage'),
     SettingRacePage: require('./SettingRacePage'),
     SignupForm: require('./SignupForm'),
     SignupPage: require('./SignupPage'),
