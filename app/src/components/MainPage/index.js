@@ -29,7 +29,7 @@ class MainPage extends Component {
 
     render() {
         // console.log(this.props.token);
-        const logInOut = this.props.token === '' ? <MainButton url="/login"><p>LOGIN</p></MainButton> : <li style={{ textAlign: 'center' }}><Button onClick={this.logout} raised colored ripple primary style={{  }}>LOGOUT</Button></li>;
+        const logInOut = this.props.token === '' ? <MainButton url="/login">LOGIN</MainButton> : <li style={{ textAlign: 'center' }}><Button onClick={this.logout} raised colored ripple primary style={{ width: '50%' }}>LOGOUT</Button></li>;
         const isLoginned = this.props.token !== '';
 
         return (
@@ -40,9 +40,9 @@ class MainPage extends Component {
                     </div>
 
                     <ul style={{ width: '100%', height: '30%', listStyleType: 'none', margin: '0 auto', padding: '0' }}>
-                        <MainButton url={isLoginned ? "/setting/race" : "/login"}><p>START</p></MainButton>
-                        <MainButton url={isLoginned ? "/record" : "/login"}><p>RECORD</p></MainButton>
-                        <MainButton url={isLoginned ? "/rank" : "/login"}><p>RANK</p></MainButton>
+                        <MainButton url={isLoginned ? "/setting/race" : "/login"}>START</MainButton>
+                        <MainButton url={isLoginned ? "/record" : "/login"}>RECORD</MainButton>
+                        <MainButton url={isLoginned ? "/rank" : "/login"}>RANK</MainButton>
                         { logInOut }
                     </ul>
 

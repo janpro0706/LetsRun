@@ -5,6 +5,7 @@
 import React, { Component } from 'react';
 import { browserHistory } from 'react-router';
 
+import { Button } from 'react-mdl';
 
 class MainButton extends Component {
     constructor(props) {
@@ -20,7 +21,7 @@ class MainButton extends Component {
 
     render() {
         return (
-            <li><a href={this.props.url} onClick={this.onClick} style={{ textAlign: 'center' }}>{this.props.children}</a></li>
+            <li style={{ textAlign: 'center', marginBottom: '10px' }}><Button onClick={this.onClick} raised colored ripple primary style={{ width: '50%' }}>{this.props.children}</Button></li>
         );
     }
 }
