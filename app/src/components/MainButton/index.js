@@ -21,7 +21,7 @@ class MainButton extends Component {
 
     render() {
         return (
-            <li style={{ textAlign: 'center', marginBottom: '10px' }}><Button onClick={this.onClick} raised colored ripple primary style={{ width: '50%' }}>{this.props.children}</Button></li>
+            <li style={{ textAlign: 'center', marginBottom: '10px' }}><Button onClick={this.props.onClick || this.onClick} raised colored ripple primary style={{ width: '50%' }}>{this.props.children}</Button></li>
         );
     }
 }

@@ -24,7 +24,7 @@ const SettingComponent = function (props) {
     const { title, children } = props;
     return (
         <div style={{ textAlign: 'center' }}>
-            <h1>{title}</h1>
+            <h1 className="mdl-color-text--accent-contrast">{title}</h1>
             {children}
         </div>
     );
@@ -64,12 +64,12 @@ class SettingRacePage extends Component {
         const trackComponent = (
             <SettingComponent title={tempTrack.name}>
                 <img src={trackImg} alt="track img" />
-                <p>Distrance: {tempTrack.distance}</p>
+                <p className="mdl-color-text--accent-contrast">Distrance: {tempTrack.distance}</p>
             </SettingComponent>
         );
 
         const singleMultiSwitch = (
-            <Switch ripple onChange={(e) => this.setState({isMulti: !this.state.isMulti})}>Multi Play</Switch>
+            <Switch ripple onChange={(e) => this.setState({isMulti: !this.state.isMulti})}><div className="mdl-color-text--accent-contrast">Multi Play</div></Switch>
         );
 
         const playerList = (
@@ -83,7 +83,7 @@ class SettingRacePage extends Component {
                     {singleMultiSwitch}
                     {this.state.isMulti ? playerList : null}
                 </div>
-                <Button onClick={e => browserHistory.push('/race') }primary style={{ position: 'absolute', bottom: '0' }}>START</Button>
+                <Button onClick={e => browserHistory.push('/race') } raised colored primary ripple style={{ width: '80%' }}>START</Button>
             </TitlebarTemplate>
         );
     }

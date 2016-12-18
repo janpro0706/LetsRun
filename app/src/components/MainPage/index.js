@@ -29,7 +29,7 @@ class MainPage extends Component {
 
     render() {
         // console.log(this.props.token);
-        const logInOut = this.props.token === '' ? <MainButton url="/login">LOGIN</MainButton> : <li style={{ textAlign: 'center' }}><Button onClick={this.logout} raised colored ripple primary style={{ width: '50%' }}>LOGOUT</Button></li>;
+        const logInOut = this.props.token === '' ? <MainButton url="/login">LOGIN</MainButton> : <MainButton onClick={this.logout}>LOGOUT</MainButton>;
         const isLoginned = this.props.token !== '';
 
         return (
@@ -46,7 +46,7 @@ class MainPage extends Component {
                         { logInOut }
                     </ul>
 
-                    <div style={{ height: '30%' }}>
+                    <div style={{ height: '30%', textAlign: 'center' }}>
                         <MainUserIcon token={this.props.token} />
                     </div>
                 </Layout>

@@ -16,9 +16,9 @@ const RecordHUD = function(props) {
     const len = props.value.length + 2;
 
     return (
-        <div>
-            <h1 style={{ fontSize: `${40 / len}vw`, marginBottom: '-15px', marginTop: '-10px' }}>{props.value}</h1>
-            <p>{props.unit}</p>
+        <div className="mdl-color--primary" style={{ display: 'flex', flexDirection: 'column', justifyContent: 'center', width: '67px', height: '67px', borderRadius: '50%' }}>
+            <h1 className="mdl-color-text--primary-contrast" style={{ fontSize: `${40 / len}vw`, marginBottom: '-15px', marginTop: '-10px' }}>{props.value}</h1>
+            <p className="mdl-color-text--primary-contrast" style={{ margin: '0' }}>{props.unit}</p>
         </div>
     );
 };
@@ -28,7 +28,7 @@ class RaceResultPage extends Component {
         return (
             <TitlebarTemplate title="RESULT" goBackUrl="/">
                 <div style={{ height: '70%' }}>
-                    <h1>미래관 레이스</h1>
+                    <h1 className="mdl-color-text--accent-contrast">미래관 레이스</h1>
                     <img src={trackImg} alt="track img" />
                 </div>
                 <div style={{ height: '30%' }}>

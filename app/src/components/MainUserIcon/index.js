@@ -4,10 +4,17 @@
 
 import React, { Component } from 'react';
 
+import { Icon } from 'react-mdl';
+
 
 class MainUserIcon extends Component {
     render() {
-        return <p style={{ textAlign: 'center' }}>{this.props.token !== '' ? `hello ${this.props.token}` : 'not loginned'}</p>;
+        return this.props.token !== '' ?
+            <div>
+                <Icon name="person" />
+                <p>`hello ${this.props.token}`</p>
+            </div> :
+            <p>not loginned</p>;
     }
 }
 

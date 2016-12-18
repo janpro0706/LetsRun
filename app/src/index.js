@@ -1,4 +1,4 @@
-import 'material-design-lite/material.css';
+import 'material-design-lite/dist/material.lime-teal.min.css';
 import 'material-design-lite/material.js';
 
 import React from 'react';
