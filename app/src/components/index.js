@@ -4,15 +4,10 @@
 
 module.exports = {
     App: require('./App'),
-    LoginForm: require('./LoginForm'),
     LoginPage: require('./LoginPage'),
-    MainButton: require('./MainButton'),
     MainPage: require('./MainPage'),
-    MainTitle: require('./MainTitle'),
-    MainUserIcon: require('./MainUserIcon'),
     RacePage: require('./RacePage'),
+    RaceResultPage: require('./RaceResultPage'),
     SettingRacePage: require('./SettingRacePage'),
-    SignupForm: require('./SignupForm'),
-    SignupPage: require('./SignupPage'),
-    TitlebarTemplate: require('./TitlebarTemplate')
+    SignupPage: require('./SignupPage')
 };

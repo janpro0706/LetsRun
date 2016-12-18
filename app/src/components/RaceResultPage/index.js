@@ -1,5 +1,5 @@
 /**
- * Created by janpr on 2016-12-16.
+ * Created by janpr on 2016-12-17.
  */
 
 import React, { Component } from 'react';
@@ -23,24 +23,10 @@ const RecordHUD = function(props) {
     );
 };
 
-class RacePage extends Component {
-    tempRaceEnd() {
-        setTimeout(() => {
-            browserHistory.push('/race/result');
-        }, 5000);
-
-        let i = 5;
-        let interval = setInterval(() => {
-            console.log(i--);
-            if (i == 0) clearInterval(interval);
-        }, 1000);
-    }
-
+class RaceResultPage extends Component {
     render() {
-        this.tempRaceEnd();
-
         return (
-            <TitlebarTemplate title="RACING">
+            <TitlebarTemplate title="RESULT" goBackUrl="/">
                 <div style={{ height: '70%' }}>
                     <h1>미래관 레이스</h1>
                     <img src={trackImg} alt="track img" />
@@ -59,4 +45,4 @@ class RacePage extends Component {
     }
 }
 
-module.exports = RacePage;
+module.exports = RaceResultPage;
