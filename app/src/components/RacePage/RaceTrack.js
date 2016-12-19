@@ -42,6 +42,8 @@ class RaceTrack extends Component {
     }
 
     testRace() {
+        if (!this.state.coord) return;
+
         let destIdx = 0;
         const fps = 1;
 
@@ -140,7 +142,7 @@ class RaceTrack extends Component {
                     containerElement={
                         <div
                             {...this.props.containerElementProps}
-                            style={{ width: '300px', height: '300px', margin: '0 auto', borderRadius: '50%' }}
+                            style={{ width: '200px', height: '200px', margin: '0 auto', borderRadius: '50%' }}
                         />
                     }
                     googleMapElement={

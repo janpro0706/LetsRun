@@ -15,14 +15,25 @@ import ResultTrack from './ResultTrack';
 
 const trackCoord = [
     {
-        lat: 37.566535,
-        lng: 126.97796919999999
+        lat: 37.622142894,
+        lng: 127.07860116
     },
     {
-        lat: 37.564835,
-        lng: 126.97796919999999
+        lat: 37.625607,
+        lng: 127.073042
     }
 ];
+
+// const trackCoord = [
+//     {
+//         lat: 37.566535,
+//         lng: 126.97796919999999
+//     },
+//     {
+//         lat: 37.564835,
+//         lng: 126.97796919999999
+//     }
+// ];
 
 const RecordHUD = function(props) {
     const str = String(props.value);

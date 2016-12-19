@@ -50,6 +50,10 @@ class ResultTrack extends Component {
             destination: dest,
             travelMode: google.maps.TravelMode.TRANSIT,
         }, (res, status) => {
+            var str = '';
+            for (var key in res) {
+                str += key + ': ' + res[key] + '\n';
+            }
             console.dir(res);
             this.setState({
                 directions: res
@@ -68,7 +72,7 @@ class ResultTrack extends Component {
                     containerElement={
                         <div
                             {...this.props.containerElementProps}
-                            style={{ width: '300px', height: '300px', margin: '0 auto', borderRadius: '50%' }}
+                            style={{ width: '200px', height: '200px', margin: '0 auto', borderRadius: '50%' }}
                         />
                     }
                     googleMapElement={
