@@ -12,7 +12,9 @@ import { Layout, Header, HeaderRow, Content } from 'react-mdl';
 class TitlebarTemplate extends Component {
     render() {
         const goBack = () => {
-            this.props.goBackUrl ? browserHistory.replace(this.props.goBackUrl) : browserHistory.go(-1);
+            if (this.props.goBackConfirm && confirm(this.props.goBackConfirm) || !this.props.goBackConfirm) {
+                this.props.goBackUrl ? browserHistory.replace(this.props.goBackUrl) : browserHistory.go(-1);
+            }
         };
 
         return (

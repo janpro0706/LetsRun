@@ -29,7 +29,8 @@ class LoginForm extends Component {
         const id = this.state.id;
         const password = this.state.password;
         if (this.props.login({ id, password })) {
-            browserHistory.goBack();
+            browserHistory.replace('/');
+
         } else {
             this.setState({ msg: 'login failed' });
         }
