@@ -36,9 +36,29 @@ const trackCoord = [
 // ];
 
 const RecordHUD = function(props) {
-    const str = String(props.value);
-    const val = str.substr(0, str[2] == '.' ? 2 : 3);
-    const len = val.length + 2;
+    let val;
+    let len;
+
+    if (props.isTimeHud) {
+        if (typeof props.value !== 'number') {
+            console.error(`RecordHUD type not matched: expected number but it's ${typeof props.value}`);
+        }
+        let h, m, s;
+        h = Math.floor(props.value / 3600);
+        m = Math.floor((props.value / 60) % 60);
+        s = Math.floor(props.value % 60);
+
+        h = h < 10 ? `0${h}` : '' + h;
+        m = m < 10 ? `0${m}` : '' + m;
+        s = s < 10 ? `0${s}` : '' + s;
+
+        val = (h != '00' ? h + ':' : '') + m + ':' + s;
+    } else {
+        let str = String(props.value);
+        let dotIdx = str.indexOf('.');
+        val = str.substr(0, dotIdx >= 3 ? dotIdx : 3);
+    }
+    len = val.length + 2;
 
     return (
         <div className="mdl-color--primary" style={{ display: 'flex', flexDirection: 'column', justifyContent: 'center', width: '67px', height: '67px', borderRadius: '50%' }}>
