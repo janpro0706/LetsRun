@@ -29,6 +29,18 @@ router.post('/', (req, res) => {
     });
 });
 
+// test
+router.get('/', (req, res) => {
+    console.log('test');
+    User.find().then(result => {
+        res.status(201).send({
+            code: 0,
+            msg: 'find all user',
+            users: result
+        });
+    });
+});
+
 const checkDuplicate = async function checkDuplicate(id) {
     let dup = await User.findByUserId(id).then(userArr => {
         return userArr.length != 0 ? true : false;
