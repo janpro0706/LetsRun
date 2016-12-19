@@ -3,13 +3,14 @@
  */
 
 import React, { Component } from 'react';
-import { Spinner } from 'react-mdl';
+import { Spinner, Snackbar } from 'react-mdl';
 import { GoogleMapLoader, GoogleMap, Marker, DirectionsRenderer } from 'react-google-maps';
+import RaceSnackbar from './RaceSnackbar';
 
 const isNear = function(src, dest) {
     if ((src.lat - dest.lat) ** 2 + (src.lng - dest.lng) ** 2 <= 0.00000001) return true;
     return false;
-}
+};
 
 const calcDistance = function calcDistance(coord1, coord2){  // generally used geo measurement function
     var R = 6378.137; // Radius of earth in KM
@@ -21,7 +22,15 @@ const calcDistance = function calcDistance(coord1, coord2){  // generally used g
     var c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1-a));
     var d = R * c;
     return d * 1000; // meters
-}
+};
+
+const alertErr = function(err) {
+    var str = '';
+    for (var key in err) {
+        str += `${key}: ${err[key]}\n`;
+    }
+    alert(str);
+};
 
 class RaceTrack extends Component {
     flag = false
@@ -30,6 +39,7 @@ class RaceTrack extends Component {
         super(props);
 
         this.state = {
+            status: -1,
             coord: null,
             directions: null,
             startTime: new Date().getTime(),
@@ -37,8 +47,82 @@ class RaceTrack extends Component {
                 speed: 0,
                 distance: 0,
                 time: 0
+            },
+            snackbar: {
+                active: false,
+                msg: ''
             }
         };
+    }
+
+    race() {
+        let prevCoord = { lat: this.state.coord.lat, lng: this.state.coord.lng };
+        let prevTime = new Date().getTime();
+        navigator.geolocation.watchPosition((pos) => {
+            const now = new Date().getTime();
+            const dt = (now - prevTime) / 1000;
+
+            const lat = pos.coords.latitude;
+            const lng = pos.coords.longitude;
+
+
+            const moved = calcDistance(prevCoord, { lat, lng });
+            const distance = this.state.hud.distance + moved;
+            const speed = moved * dt;
+            const time = (new Date().getTime() - this.state.startTime) / 1000;
+
+            this.setState({
+                coord: { lat, lng },
+                hud: { distance, speed, time }
+            });
+            this.props.onPlayerChanged(this.state.hud);
+
+            prevCoord = { lat, lng };
+
+            console.dir(pos);
+        }, (err) => {
+            console.error(err);
+        }, {
+            enableHighAccuracy: true
+        })
+
+        const interval = setInterval(() => {
+            if (this.state.status == -1) {
+                this.setState({
+                    status: 0,
+                    snackbar: {
+                        active: true,
+                        msg: 'Go to Start Point and Ready'
+                    }
+                });
+            }
+            // ready for player to be at the start point
+            else if (this.state.status == 0) {
+                const coord = this.state.coord;
+                const trackCoord = this.props.trackCoord;
+
+                if (isNear(coord, trackCoord[0])) {
+                    this.setState({ status: 1 });
+                    this.setState({
+                        snackbar: {
+                            active: false,
+                            msg: ''
+                        }
+                    });
+                }
+            }
+            // race
+            else if (this.state.status == 1) {
+                const coord = this.state.coord;
+                const trackCoord = this.props.trackCoord;
+
+                if (isNear(coord, trackCoord[1])) {
+                    this.setState({ status: 2 });
+                    this.props.onDestReached();
+                    clearInterval(interval);
+                }
+            }
+        }, 1000);
     }
 
     testRace() {
@@ -88,8 +172,8 @@ class RaceTrack extends Component {
                     lng: pos.coords.longitude
                 }
             });
-            console.dir(this.state.coord);
         }, (err) => {
+            alertErr(err);
             console.dir(err);
         });
 
@@ -105,7 +189,7 @@ class RaceTrack extends Component {
             destination: dest,
             travelMode: google.maps.TravelMode.TRANSIT,
         }, (res, status) => {
-            console.dir(res);
+            alertErr(res);
             this.setState({
                 directions: res
             });
@@ -119,7 +203,8 @@ class RaceTrack extends Component {
 
         if (!this.flag) {
             this.flag = true
-            this.testRace();
+            // this.testRace();
+            this.race();
         }
 
         let currentPos = {
@@ -161,6 +246,7 @@ class RaceTrack extends Component {
                         </GoogleMap>
                     }
                 />
+                <Snackbar active={this.state.snackbar.active} onTimeout={() => {}}>{this.state.snackbar.msg}</Snackbar>
             </section>
         );
     }
