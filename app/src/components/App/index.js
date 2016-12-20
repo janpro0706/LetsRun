@@ -27,8 +27,8 @@ class App extends Component {
                         lng: 127.07860116
                     },
                     {
-                        lat: 37.625607,
-                        lng: 127.073042
+                        lat: 37.627853,
+                        lng: 127.077833
                     }
                 ]
             }],
