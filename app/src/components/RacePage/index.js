@@ -95,11 +95,20 @@ class RacePage extends Component {
 
     // fired when an individual player reached goal
     onDestReached() {
+        const { distance, speed, time } = this.state.hud;
+        this.props.createRecord({
+            idx: this.props.getRecords().length,
+            track: '등교길 레이스',
+            distance, speed, time
+        })
+
         browserHistory.push('/race/result');
     }
 
     render() {
         // this.tempRaceEnd();
+        const track = this.props.getTrack(0);
+        const trackCoord = track.trackCoord;
 
         const raceTrack = (<RaceTrack
             containerElementProps={{}}
@@ -113,7 +122,7 @@ class RacePage extends Component {
         return (
             <TitlebarTemplate title="RACING" goBackConfirm={'r u sure?'} goBackUrl="/">
                 <div style={{ height: '70%' }}>
-                    <h1 className="mdl-color-text--accent-contrast">미래관 레이스</h1>
+                    <h1 className="mdl-color-text--accent-contrast">{track.name}</h1>
                     {/*<img src={trackImg} alt="track img" />*/}
                     {raceTrack}
                 </div>

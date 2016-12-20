@@ -12,6 +12,7 @@ import { Switch, List, ListItem, ListItemContent, ListItemAction, Icon, Button }
 
 // temp track img
 import trackImg from '../../img/google_map.png';
+import ResultTrack from './ResultTrack';
 
 const tempTrack = {
     trackId: '1234',
@@ -19,6 +20,17 @@ const tempTrack = {
     googleMapToken: '5678',
     distance: '100'
 };
+
+const trackCoord = [
+    {
+        lat: 37.622142894,
+        lng: 127.07860116
+    },
+    {
+        lat: 37.625607,
+        lng: 127.073042
+    }
+];
 
 const SettingComponent = function (props) {
     const { title, children } = props;
@@ -52,6 +64,7 @@ const PlayerList = function(props) {
 class SettingRacePage extends Component {
     constructor(props) {
         super(props);
+        this.raceStart = this.raceStart.bind(this);
 
         this.state = {
             track: {},
@@ -60,11 +73,29 @@ class SettingRacePage extends Component {
         };
     }
 
+    componentWillMount() {
+        const track = this.props.getTrack(0);
+
+        this.setState({ track });
+    }
+
+    raceStart(e) {
+        this.props.createRace({
+            track: this.state.track
+        });
+        browserHistory.push('/race')
+    }
+
     render() {
+        const track = this.state.track;
+
         const trackComponent = (
-            <SettingComponent title={tempTrack.name}>
-                <img src={trackImg} alt="track img" />
-                <p className="mdl-color-text--accent-contrast">Distrance: {tempTrack.distance}</p>
+            <SettingComponent title={track.name}>
+                <ResultTrack
+                    containerElementProps={{}}
+                    trackCoord={track.trackCoord}
+                    zoom={17}
+                />
             </SettingComponent>
         );
 

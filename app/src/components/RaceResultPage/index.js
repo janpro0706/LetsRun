@@ -70,23 +70,27 @@ const RecordHUD = function(props) {
 
 class RaceResultPage extends Component {
     render() {
+        const track = this.props.getTrack(0);
+        const records = this.props.getRecords();
+        const record = records[records.length - 1];
+
         return (
             <TitlebarTemplate title="RESULT" goBackUrl="/">
                 <div style={{ height: '70%' }}>
-                    <h1 className="mdl-color-text--accent-contrast">미래관 레이스</h1>
+                    <h1 className="mdl-color-text--accent-contrast">{track.name}</h1>
                     {/*<img src={trackImg} alt="track img" />*/}
                     <ResultTrack
                         containerElementProps={{}}
-                        trackCoord={trackCoord}
+                        trackCoord={track.trackCoord}
                         zoom={17}
                     />
                 </div>
                 <div style={{ height: '30%' }}>
                     <Grid>
                         <div className="mdl-layout-spacer" />
-                        <Cell phone={1} align="bottom"><RecordHUD value="3" unit="ranks" /></Cell>
-                        <Cell phone={1} align="bottom"><RecordHUD value="20" unit="km/h" /></Cell>
-                        <Cell phone={1} align="bottom"><RecordHUD value="30:02" unit="time" /></Cell>
+                        <Cell phone={1} align="bottom"><RecordHUD value={this.props.isMulti ? 3 : record.distance} unit={this.props.isMulti ? 'ranks' : 'meters'} /></Cell>
+                        <Cell phone={1} align="bottom"><RecordHUD value={record.speed} unit="m/s" /></Cell>
+                        <Cell phone={1} align="bottom"><RecordHUD value={record.time} unit="time" /></Cell>
                         <div className="mdl-layout-spacer" />
                     </Grid>
                 </div>

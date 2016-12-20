@@ -8,6 +8,7 @@ module.exports = {
     MainPage: require('./MainPage'),
     RacePage: require('./RacePage'),
     RaceResultPage: require('./RaceResultPage'),
+    RecordPage: require('./RecordPage'),
     SettingRacePage: require('./SettingRacePage'),
     SignupPage: require('./SignupPage')
 };

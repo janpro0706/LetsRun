@@ -105,8 +105,8 @@ class RaceTrack extends Component {
                     this.setState({ status: 1 });
                     this.setState({
                         snackbar: {
-                            active: false,
-                            msg: ''
+                            active: true,
+                            msg: 'Race!'
                         }
                     });
                 }
@@ -189,7 +189,6 @@ class RaceTrack extends Component {
             destination: dest,
             travelMode: google.maps.TravelMode.TRANSIT,
         }, (res, status) => {
-            alertErr(res);
             this.setState({
                 directions: res
             });
