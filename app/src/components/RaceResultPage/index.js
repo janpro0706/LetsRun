@@ -77,7 +77,7 @@ class RaceResultPage extends Component {
         return (
             <TitlebarTemplate title="RESULT" goBackUrl="/">
                 <div style={{ height: '70%' }}>
-                    <h1 className="mdl-color-text--accent-contrast">{track.name}</h1>
+                    <h1 className="mdl-color-text--accent-contrast" style={{ fontSize: 60 / track.name.length + 'vw' }}>{track.name}</h1>
                     {/*<img src={trackImg} alt="track img" />*/}
                     <ResultTrack
                         containerElementProps={{}}
@@ -89,7 +89,9 @@ class RaceResultPage extends Component {
                     <Grid>
                         <div className="mdl-layout-spacer" />
                         <Cell phone={1} align="bottom"><RecordHUD value={this.props.isMulti ? 3 : record.distance} unit={this.props.isMulti ? 'ranks' : 'meters'} /></Cell>
+                        <div className="mdl-layout-spacer" />
                         <Cell phone={1} align="bottom"><RecordHUD value={record.speed} unit="m/s" /></Cell>
+                        <div className="mdl-layout-spacer" />
                         <Cell phone={1} align="bottom"><RecordHUD value={record.time} unit="time" /></Cell>
                         <div className="mdl-layout-spacer" />
                     </Grid>

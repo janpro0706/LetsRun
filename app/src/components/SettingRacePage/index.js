@@ -34,9 +34,10 @@ const trackCoord = [
 
 const SettingComponent = function (props) {
     const { title, children } = props;
+
     return (
         <div style={{ textAlign: 'center' }}>
-            <h1 className="mdl-color-text--accent-contrast">{title}</h1>
+            <h2 className="mdl-color-text--accent-contrast" style={{ fontSize: 40 / title.length + 'vw', margin: '0' }}>{title}</h2>
             {children}
         </div>
     );
@@ -100,7 +101,7 @@ class SettingRacePage extends Component {
         );
 
         const singleMultiSwitch = (
-            <Switch ripple onChange={(e) => this.setState({isMulti: !this.state.isMulti})}><div className="mdl-color-text--accent-contrast">Multi Play</div></Switch>
+            <Switch className="letsrun-setting-race-page__multi-switch" ripple onChange={(e) => this.setState({isMulti: !this.state.isMulti})}><span className="mdl-color-text--accent-contrast">{this.state.isMulti ? 'on': 'off'}</span></Switch>
         );
 
         const playerList = (
@@ -110,8 +111,15 @@ class SettingRacePage extends Component {
         return (
             <TitlebarTemplate title="SETTING">
                 <div style={{ height: '90%', overflow: 'scroll' }}>
+                    <div style={{ textAlign: 'initial', position: 'relative' }}>
+                        <h1 style={{ display: 'inline-block', width: '40vw', fontSize: '8vw', marginBottom: '0', borderBottom: '1px solid' }}>Track</h1>
+                        <a href="#" className="letsrun-setting-race-page__multi-switch" style={{ width: '5vw' }} ><Icon className="mdl-color-text--black" name="more_horiz" /></a>
+                    </div>
                     {trackComponent}
-                    {singleMultiSwitch}
+                    <div style={{ textAlign: 'initial', position: 'relative' }}>
+                        <h1 style={{ display: 'inline-block', width: '40vw', fontSize: '8vw', marginBottom: '0', borderBottom: '1px solid' }}>Multi Play</h1>
+                        {singleMultiSwitch}
+                    </div>
                     {this.state.isMulti ? playerList : null}
                 </div>
                 <Button onClick={e => browserHistory.push('/race') } raised colored primary ripple style={{ width: '80%' }}>START</Button>

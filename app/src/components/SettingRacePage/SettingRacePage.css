@@ -2,3 +2,11 @@
 .letsrun_mdl_layout__fullscreen > .mdl-layout__inner-container {
     height: 100%;
 }
+
+.letsrun-setting-race-page__multi-switch {
+    display: inline-block !important;
+    width: 20vw;
+    position: absolute;
+    right: 10px;
+    top: 50%;
+}

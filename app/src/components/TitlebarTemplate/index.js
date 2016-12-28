@@ -25,7 +25,7 @@ class TitlebarTemplate extends Component {
                         </HeaderRow>
                         <button className="goBack mdl-layout-icon mdl-button mdl-js-button mdl-button--icon" onClick={goBack}><i className="material-icons mdl-color--primary">keyboard_arrow_left</i></button>
                     </Header>
-                    <Content style={{ height: '88%', left: '0', top: '0' }}>
+                    <Content style={{ width: '90%', height: '88%', left: '0', top: '0' }}>
                         {this.props.children}
                     </Content>
                 </Layout>

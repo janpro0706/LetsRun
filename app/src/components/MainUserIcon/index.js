@@ -11,7 +11,7 @@ class MainUserIcon extends Component {
     render() {
         return this.props.token !== ''
             ? <div>
-                <Icon name="person" />
+                <Icon className="mdl-color-text--grey" name="account_circle" style={{ fontSize: '20vw' }} />
                 <p>{`hello ${this.props.token}`}</p>
             </div>
             : <p>not loginned</p>;

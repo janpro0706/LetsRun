@@ -46,7 +46,7 @@ class MainPage extends Component {
                         { logInOut }
                     </ul>
 
-                    <div style={{ height: '30%', textAlign: 'center' }}>
+                    <div style={{ height: '30%', textAlign: 'center', marginTop: '10vw' }}>
                         <MainUserIcon token={this.props.token} />
                     </div>
                 </Layout>

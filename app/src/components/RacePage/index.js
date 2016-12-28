@@ -122,7 +122,7 @@ class RacePage extends Component {
         return (
             <TitlebarTemplate title="RACING" goBackConfirm={'r u sure?'} goBackUrl="/">
                 <div style={{ height: '70%' }}>
-                    <h1 className="mdl-color-text--accent-contrast">{track.name}</h1>
+                    <h1 className="mdl-color-text--accent-contrast" style={{ fontSize: 60 / track.name.length + 'vw' }}>{track.name}</h1>
                     {/*<img src={trackImg} alt="track img" />*/}
                     {raceTrack}
                 </div>
@@ -130,7 +130,9 @@ class RacePage extends Component {
                     <Grid>
                         <div className="mdl-layout-spacer" />
                         <Cell phone={1} align="bottom"><RecordHUD value={this.props.isMulti ? 3 : this.state.hud.distance} unit={this.props.isMulti ? 'ranks' : 'meters'} /></Cell>
+                        <div className="mdl-layout-spacer" />
                         <Cell phone={1} align="bottom"><RecordHUD value={this.state.hud.speed} unit="m/s" /></Cell>
+                        <div className="mdl-layout-spacer" />
                         <Cell phone={1} align="bottom"><RecordHUD value={this.state.hud.time} unit="time" isTimeHud /></Cell>
                         <div className="mdl-layout-spacer" />
                     </Grid>
