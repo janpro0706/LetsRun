@@ -9,12 +9,12 @@ import { Icon } from 'react-mdl';
 
 class MainUserIcon extends Component {
     render() {
-        return this.props.token !== '' ?
-            <div>
+        return this.props.token !== ''
+            ? <div>
                 <Icon name="person" />
-                <p>`hello ${this.props.token}`</p>
-            </div> :
-            <p>not loginned</p>;
+                <p>{`hello ${this.props.token}`}</p>
+            </div>
+            : <p>not loginned</p>;
     }
 }
 

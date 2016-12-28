@@ -44,11 +44,14 @@ class LoginForm extends Component {
     render() {
         return (
             <div style={{ width: '100%', height: '100%', position: 'relative' }}>
-                <form style={{ position: 'absolute', top: 'calc(50% - 90px)' }}>
+                <form style={{ textAlign: 'center', position: 'absolute', top: 'calc(50% - 90px)' }}>
                     <Textfield label="ID" value={this.state.id} onChange={e => { this.setState({ id: e.target.value })}}></Textfield>
                     <Textfield label="PASSWORD" type="password" value={this.state.password} onChange={e => { this.setState({password: e.target.value })}}></Textfield>
-                    <Button onClick={this.onSubmit} raised colored ripple>LOGIN</Button>
-                    <Button onClick={() => { browserHistory.push('/signup') }} raised colored ripple primary>SIGN UP</Button>
+                    <br />
+                    <div style={{ display: 'inline-block', width: '300px' }}>
+                        <Button onClick={this.onSubmit} raised colored ripple style={{ width: '100%', marginBottom: '10px' }}>LOGIN</Button>
+                        <Button onClick={() => { browserHistory.push('/signup') }} raised colored ripple primary style={{ width: '100%' }}>SIGN UP</Button>
+                    </div>
                     <p style={{ color: 'red', textAlign: 'center' }}>{this.state.msg}</p>
                 </form>
             </div>

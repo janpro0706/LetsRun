@@ -80,7 +80,9 @@ class ResultTrack extends Component {
                             options={{
                                 draggable: false,
                                 disableDefaultUI: true,
-                                disableDoubleClickZoom: true
+                                disableDoubleClickZoom: true,
+                                clickableIcons: false,
+                                zoomControl: false
                             }}
                             ref={(map) => {}}
                             defaultZoom={this.props.zoom || 17}

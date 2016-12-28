@@ -1,0 +1,10 @@
+
+td {
+    padding: 5px;
+}
+
+.letsrun-record-page__inner-td td {
+    overflow: scroll;
+    text-overflow: ellipsis;
+    max-width: 0;
+}
